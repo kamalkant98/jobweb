@@ -1,0 +1,151 @@
+.content{
+    margin-top:90px;
+}
+.navbar{
+    width:100%;
+    background-color:#3f6ad8;
+    position:fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    z-index:1   ;
+}
+.footer{
+    width:100%;
+    background-color:#e4e6ee;
+}
+.login-box{
+    margin:15px;
+}
+.register-box{
+    margin:15px;
+}
+
+.logo-image{
+    width: 50px;
+    height: auto;   
+}
+.image-box{
+    text-align: center;
+}
+.login-form .from-group{
+    padding: 20px 0px 20px 0px;
+}
+.navbar{
+    padding:2px 5px;
+}
+.logo-image{
+    width:100px;
+}
+
+/**************
+ADMIN CSS
+****************/
+.adminlogo{
+    background-size: contain;
+    width: 105px;
+    height: 40px;
+}
+.sidebar-icon{
+  font-size: 20px;
+    
+}
+.app-header__logo .logo-src{
+    height:39px;
+    width:97px;
+    background-size: contain  !important;
+    margin: auto;
+   /*  background:url(http://127.0.0.1:8000/assest/web/assest/images/logo2.png) */
+}
+.vertical-nav-menu i.metismenu-icon{
+    text-align:center;
+    width:34px;
+    height:34px;
+    line-height:34px;
+    position:absolute;
+    left:5px;
+    top:50%;
+    margin-top:-17px;
+    font-size:20px;
+    opacity:.3;
+    transition:color 300ms;
+}
+.vertical-nav-menu i.metismenu-state-icon{
+    text-align:center;
+    width:34px;
+    height:34px;
+    line-height:34px;
+    position:absolute;
+    left:5px;
+    top:50%;
+    margin-top:-17px;
+    font-size:15px;
+    opacity:.3;
+    transition:color 300ms;
+}
+
+.categoryimage{
+    width: 38px;
+    border: solid 1px #e6e6e6;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.categoryimageedit{
+    width: 100px;
+    border: solid 1px #e6e6e6;
+    border-radius: 5px;
+    object-fit: contain;
+}
+.profile{
+    width: 100px;
+    border: solid 1px #e0e0e0;
+    border-radius: 7px;
+}
+.cover{
+    width: 200px;
+    border: solid 1px #e0e0e0;
+    border-radius: 7px;
+}
+.profile-list{
+    width: 35px;
+    border: solid 1px #e0e0e0;
+    border-radius: 2px;
+}
+.cover-list{
+    width: 50px;
+    border: solid 1px #e0e0e0;
+    border-radius:2px;
+}
+.toast-success{
+    background-color: #2e9d64 !important; 
+} 
+
+
+/* fornt web pagse style */
+
+.profile_image{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/* .main-header-area{
+    margin-top: -15px;
+    margin-bottom: -15px  !important;
+} */
+/* .sticky{
+    margin-top: -15px;
+    margin-bottom: -15px  !important;
+} */
+
+.submenu li:hover{
+    background-color: #00D363;
+}
+.header-area .main-header-area .main-menu ul li{
+    margin: -14px 14px;
+}
+.subcategory{
+    margin-left: 200px;
+    
+}
