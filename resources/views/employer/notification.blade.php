@@ -1,8 +1,7 @@
 @extends('employer.layouts.app')
 @section('content')
 
-    <style>
-             .notificaton-row{
+    <style> .notificaton-row{
                 background: #efefef42;
                 padding: 15px 10px;
                 border-bottom: solid 1px #e6e3e3;
@@ -11,6 +10,13 @@
                 position: absolute;
                 right: 25px;
                 
+             }
+             .noti_image{
+                width: 39px;
+                height: 39px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: solid 1px #3f6ad8;
              }
     </style>
 
@@ -41,7 +47,7 @@
                                         @else
                                         <span><i class="far fa-eye"style="margin: 5px; color: #3f6ad8;"></i></span>
                                         @endif
-                                        <span>  <strong>{{ getuser($notification->data['0']['id'] ?? '')->name}} </strong>applyed for <strong>{{ get_job($notification->data['data']['job_id'] ?? '')->job_title}}</strong> </span>
+                                        <span> <img  class="noti_image" src="{{asset('assest/web/assest/images/profile_image')}}/{{getuser($notification->data['0']['id'])->profile_image ?? 'profile.jpg'}}"/> <strong>{{ getuser($notification->data['0']['id'] ?? '')->name}} </strong>applyed for <strong>{{ get_job($notification->data['data']['job_id'] ?? '')->job_title}}</strong> </span>
 
                                         <div class="time_ago">{{$notification->created_at->diffForHumans()}}</div>
                                     </a>

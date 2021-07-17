@@ -148,6 +148,50 @@
                 
             
         </div>
+
+        <div class="card" style="padding:10px; margin-top:15px;">
+            <div class="card-header">
+                     Change Password
+            </div>
+            <div class="card-body">
+            <form action="{{url('/changepassword')}}" method="post" >
+            @csrf
+                <div class="row">
+                    
+
+                    <div class="col-md-6">
+                        <div class="position-relative form-group">
+                            <label for="oldpassword" class=""><strong>Old password</strong></label>
+                            <input name="oldpassword" id="oldpassword" placeholder="old password" type="password" class="form-control @error('oldpassword') is-invalid @enderror" value="{{old('oldpassword')}}">
+                            @error('oldpassword')
+                            <span class="help-block " style="color:red;">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="position-relative form-group">
+                            <label for="password" class=""><strong>New password</strong></label>
+                            <input name="password" id="password" placeholder="New password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}">
+                            @error('password')
+                            <span class="help-block " style="color:red;">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="position-relative form-group">
+                            <label for="password_confirmation" class=""><strong>New Re-password</strong></label>
+                            <input name="password_confirmation" id="password_confirmation" placeholder="Re-password" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" value="{{old('password_confirmation')}}">
+                            @error('password_confirmation')
+                            <span class="help-block " style="color:red;">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    
+                </div>     
+                <button type="submit" class="mt-2 btn btn-primary">submit</button>    
+            </form>
+            </div>
+                
+            
+        </div>
                 
     </div>   
 </div>

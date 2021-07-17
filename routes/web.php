@@ -5,6 +5,7 @@ use App\Http\Controllers\webController;
 use App\Http\Controllers\auth\loginController;
 use App\Http\Controllers\auth\registerController;
 use App\Http\Controllers\auth\register_company;
+use App\Http\Controllers\auth\ForgotPassword;
 
 
 
@@ -39,5 +40,8 @@ Route::post('user_register',[registerController::class,'user_register'])->name('
 Route::view('/register_company','auth.register_company')->name('register_company');
 Route::post('employer_create',[register_company::class,'employer_create'])->name('employer_create');
 
-
+Route::view('/forgot_password','auth.passwords.ForgotPassword')->name('forgot_password');
+Route::post('/forgot_password_set_link',[ForgotPassword::class,'ForgotPassword'])->name('forgot_password_set_link');
+route::get('/reset_password/{token}',[ForgotPassword::class,'reset_password'])->name('reset_password');
+Route::Post('/new_password',[ForgotPassword::class,'new_password'])->name('new_password');
 

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\webController;
 use App\Http\Controllers\auth\loginController;
 use App\Http\Controllers\auth\registerController;
+use App\Http\Controllers\changepassword;
+
 
 
 Route::group (['middleware'=>'auth'],function(){
@@ -18,7 +20,7 @@ Route::group (['middleware'=>'auth'],function(){
   });
 
    //change passowrd
-   Route::get('changepassword',[webController::class,'change_password'])->name('change_password');
+   Route::post('changepassword',[changepassword::class,'change_password'])->name('change_password');
 
   
 
@@ -87,7 +89,7 @@ Route::group(['middleware'=>['auth','authemploye']], function () {
 
    Route::get('notification',[webController::class,'user_notification'])->name('user_notification');
    
-  
+    Route::view('profile/change_password','web.pages.change_password')->name('user_change_password');
 
 });
 
@@ -113,5 +115,9 @@ Route::group(['prefix' => 'employer','middleware'=>['auth','authemployer']], fun
       Route::any('actively_update/{job_id}/{user_id}/{data}',[webController::class,'actively_update'])->name('actively_update');
       
       Route::get('notification',[webController::class,'notification'])->name('notification');
+
+      Route::get('profile',[webController::class,'employer_profile'])->name('employer_profile');
+
+      Route::post('update_profile',[webController::class,'update_profile'])->name('update_profile');
 
 });

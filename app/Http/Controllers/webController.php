@@ -941,4 +941,77 @@ class webController extends Controller
    public function notification(){
       return view('employer.notification');
    }
+   
+   public function employer_profile(){
+      $profile= User::where('id',auth()->user()->id)->first();
+
+      return view('employer.pages.profile',['edit_employer'=>$profile]);
+   }
+
+   public function update_profile(Request $request){
+      $validator =   Validator::make($request->all(), [
+         'employer_name' => ['required'],
+         'email' => ['string', 'email', 'max:255','unique:users,email,'.$request->userid],
+         'employer_mobile' => ['required','min:11','numeric'],
+         'employer_website' => ['required','string'],
+         'employee_working' => ['required','string'],
+         'salary_day' => ['required','numeric'],
+         'employer_level' => ['required','numeric'],
+         'contact_person_name' => ['required','string'],
+         'State' => ['required','string'],
+         'contact_person_designation' => ['required','string'],
+         'City' => ['required','string'],
+         'contact_person_email' => ['string', 'email', 'max:255'],
+       
+         'contact_person_mobile' => ['required','string'],
+         'address'=>['required','required'],
+         'description'=>['required'],
+         'cover_image' => ['image','mimes:jpeg,png,jpg'],
+         'profile_image' => ['image','mimes:jpeg,png,jpg'], 
+     ]);
+     if ($validator->fails()) {
+       return back()->withErrors($validator)->with('error','Employer has been Updated successfully.');;
+     }else {
+             $data=User::where('id',$request->userid)->first();
+   
+             $data->name=$request->employer_name;
+             /* $data->email=$request->email; */
+            /*  $data->person_email=$request->contact_person_email; */
+            /*  $data->password=hash::make($request->empolyer_password); */
+             $data->website=$request->employer_website;
+             $data->employee_working=$request->employee_working;
+             $data->salary_day=$request->salary_day;
+             $data->employer_level= $request->employer_level;
+             $data->person_name=$request->contact_person_name;
+             $data->state=$request->State;
+             $data->city=$request->City;
+             $data->person_designation=$request->contact_person_designation;
+             $data->description=$request->description;
+             $data->status=$request->status;
+             $data->premium_status=$request->premium_status;
+             $data->profile_status=$request->profile_status;
+             $data->address=$request->address;
+             $data->mobile=$request->employer_mobile;
+             $data->person_mobile=$request->contact_person_mobile;
+         if($request->hasfile('profile_image')){
+             $path=public_path('assest/web/assest/images/profile_image');
+             $oldprofile= $path.'/'.$request->profile_image;
+             @unlink($oldprofile);
+             $filename= Str::random(7).time().'.'.$request->file('profile_image')->Extension();
+             $image= $request->file('profile_image')->move($path,$filename);
+             $data->profile_image=$filename ;
+         }
+         if($request->hasfile('cover_image')){
+             $path=public_path('assest/web/assest/images/cover_image');
+             $oldprofile= $path.'/'.$request->profile_image;
+             @unlink($oldprofile);
+             $filename= Str::random(7).time().'.'.$request->file('cover_image')->Extension();
+             $image= $request->file('cover_image')->move($path,$filename);
+             $data->cover_image=$filename ;
+         }
+         if($data->save()){
+             return back()->with('success','Employer has been Updated successfully.');
+         }
+      }
+   }
 }

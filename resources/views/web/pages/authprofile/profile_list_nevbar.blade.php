@@ -46,7 +46,7 @@
 <div class="col-xl-3 col-lg-3 col-md-3 ">
     <div class="nav2 ">
             <img class="imageprofile2" src ="{{asset('assest/web/assest/images/profile_image')}}/{{auth()->user()->profile_image ?? 'profile.jpg'}}" alt=''> <h3>{{auth()->user()->name}}</h3>
-        <label>Profile Updated</label>
+        <label>Profile Updated kamal</label>
            <div class="progress" style="margin-bottom:15px;">
                 <div class="progress-bar" role="progressbar" style="width: {{round(calculate_profile(auth()->user()->id))}}%; background-color:#1284ff;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> {{round(calculate_profile(auth()->user()->id))}}%</div>
             </div> 
@@ -64,7 +64,7 @@
             <li><a class="nav-sec {{ Request::is(['profile/applied_jobs']) ? 'active' : null }}  "href="{{url('profile/applied_jobs')}}" ><i class="fas fa-briefcase"></i> Applied Jobs</a></li>
             <li><a class="nav-sec {{ Request::is(['profile/interview_schedules']) ? 'active' : null }} " href="{{url('profile/interview_schedules')}}"><i class="fas fa-business-time"></i> Interview Schedules</a></li>
             <li><a class="nav-sec"href="candidate.html"> <i class="fas fa-history"></i> Job-History </a></li>
-            <li><a class="nav-sec"href="job_details.html"> <i class="fas fa-lock"></i> Change Password</a></li>
+            <li><a class="nav-sec Request::is(['profile/change_password']) ? 'active' : null " href="{{url('profile/change_password')}}"> <i class="fas fa-lock"></i> Change Password</a></li>
             <li><a class="nav-sec"href="candidate.html"> <i class="fas fa-clipboard-list"></i> Support Ticket lists</a></li>
             <li><a class="nav-sec"href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
